@@ -760,6 +760,6 @@ Has dado tus primeros pasos en Python. La clave del éxito es la **práctica con
 
 ---
 
-**Preparado por:** Tu Instructor
+**Preparado por:** Mauricio Mercado
 **Fecha:** Noviembre 2025
 **Clase:** 1 de Python para Principiantes
