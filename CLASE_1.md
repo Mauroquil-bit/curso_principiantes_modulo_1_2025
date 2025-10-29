@@ -1,765 +1,973 @@
-# Python para Principiantes
-## Clase 1: Fundamentos de Python
-
-**Contenido:** Intérprete de Python, Comentarios, Tipos de Datos, Variables y Asignación
+# Guía Teórica Completa de Python para Principiantes
 
 ---
 
-## 📑 Tabla de Contenidos
+## 1. GETTING STARTED - Comenzando con Python
 
-1. [Comenzando con Python (Getting Started)](#1-comenzando-con-python)
-   - El Intérprete de Python
-   - Modo Interactivo (REPL)
-   - Ejecutar Scripts
-2. [Comentarios en Python](#2-comentarios-en-python)
-   - ¿Por qué usar comentarios?
-   - Tipos de comentarios
-   - Buenas prácticas
-3. [Tipos de Datos (Data Types)](#3-tipos-de-datos)
-   - Tipado dinámico
-   - Tipos básicos: int, float, str, bool, None
-   - Conversiones de tipos
-4. [Variables y Asignación](#4-variables-y-asignación)
-   - Creación de variables
-   - Convenciones de nombres
-   - Asignaciones múltiples
+### 1.1 El Intérprete Interactivo de Python
 
----
+**Concepto Fundamental:**
+Python es un lenguaje interpretado, lo que significa que no necesitas compilar tu código antes de ejecutarlo. El intérprete de Python lee y ejecuta el código línea por línea en tiempo real.
 
-## 1. Comenzando con Python
+**El Shell Interactivo (REPL):**
+REPL significa Read-Eval-Print Loop (Leer-Evaluar-Imprimir-Repetir). Es un entorno donde puedes:
+- Escribir código Python línea por línea
+- Ver resultados inmediatos
+- Experimentar y probar ideas rápidamente
+- Explorar funciones y módulos
 
-### ¿Qué es Python?
-
-Python es un **lenguaje de programación de alto nivel**, lo que significa que está diseñado para ser fácil de leer y escribir para los humanos. A diferencia de lenguajes de bajo nivel que hablan directamente con el hardware de la computadora, Python se encarga de traducir tu código a instrucciones que la máquina puede entender.
-
-> **💡 Analogía:** Imagina que quieres hablar con alguien que solo habla alemán, pero tú solo hablas español. Necesitas un traductor (intérprete) que convierta tus palabras al alemán. Python funciona igual: tú escribes en 'Python' (lenguaje humano), y el intérprete lo traduce a 'lenguaje de máquina' (ceros y unos).
-
----
-
-### ¿Cómo funciona el Intérprete de Python?
-
-El intérprete de Python (CPython es el más común) es un programa que lee tu código Python y lo ejecuta. Este proceso ocurre en varias etapas:
-
-```
-┌─────────────────┐
-│  Código Python  │
-│     (.py)       │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│      Lexer      │  ← Divide el código en "tokens"
-│    (Tokens)     │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│     Parser      │  ← Construye Árbol de Sintaxis Abstracta (AST)
-│      (AST)      │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│    Compiler     │  ← Genera bytecode (.pyc)
-│   (Bytecode)    │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  Python Virtual │  ← Ejecuta el bytecode
-│    Machine      │
-│     (PVM)       │
-└────────┬────────┘
-         │
-         ▼
-   Resultado Final
-```
-
-#### Explicación de cada fase:
-
-| Fase | Descripción |
-|------|-------------|
-| **1. Código Python (.py)** | El código fuente que escribes en un archivo con extensión .py |
-| **2. Lexer (Análisis Léxico)** | Divide el código en 'tokens' (palabras clave, operadores, identificadores) |
-| **3. Parser (Análisis Sintáctico)** | Construye un Árbol de Sintaxis Abstracta (AST) verificando la estructura |
-| **4. Compiler (Compilador)** | Convierte el AST en bytecode (.pyc) - código intermedio optimizado |
-| **5. Python Virtual Machine** | Ejecuta el bytecode línea por línea y produce el resultado final |
-
-> **📌 Nota importante:** Este proceso es completamente automático y ocurre en milisegundos. Como programador, solo necesitas escribir tu código Python - ¡el intérprete se encarga del resto!
-
----
-
-### El Modo Interactivo (REPL)
-
-Python tiene dos formas principales de ejecución: **modo interactivo** y **modo script**. El modo interactivo es ideal para experimentar y aprender.
-
-**REPL significa: Read-Eval-Print-Loop** (Leer-Evaluar-Imprimir-Repetir)
-
-```
-    ┌──────────────────────────┐
-    │                          │
-    │    1. READ (Lee)         │
-    │           ↓              │
-    │    2. EVAL (Evalúa)      │
-    │           ↓              │
-    │    3. PRINT (Imprime)    │
-    │           ↓              │
-    │    4. LOOP (Repite) ─────┤
-    │                          │
-    └──────────────────────────┘
-```
-
-#### Iniciar el Shell Interactivo
-
-Para iniciar Python en modo interactivo, abre tu terminal o línea de comandos y escribe:
+**Comandos básicos:**
 
 ```bash
+# Iniciar el shell interactivo
 $ python
+# o en algunos sistemas:
+$ python3
+
+# Dentro del shell verás el prompt:
+>>> 
+
+# Para salir del shell:
+>>> exit()
+# o alternativamente:
+>>> quit()
+# o presionar Ctrl+D (Linux/Mac) o Ctrl+Z (Windows)
 ```
 
-Verás el **prompt** de Python representado por tres símbolos de mayor que (`>>>`). Esto indica que Python está esperando que escribas un comando.
-
-#### Ejemplo de uso interactivo:
-
+**Ejemplo práctico en el shell:**
 ```python
->>> print("¡Hola, Python!")
-¡Hola, Python!
-
 >>> 2 + 2
 4
-
->>> nombre = "Ana"
+>>> nombre = "María"
 >>> print(f"Hola, {nombre}")
-Hola, Ana
+Hola, María
+>>> help(print)  # Obtener ayuda sobre una función
 ```
 
-#### Salir del Shell Interactivo
+### 1.2 Ejecutar Scripts de Python
 
-Para salir del modo interactivo, escribe:
+**¿Qué es un script?**
+Un script es un archivo de texto con extensión `.py` que contiene código Python. Permite escribir programas más largos y reutilizables.
+
+**Crear y ejecutar un script:**
 
 ```python
->>> exit()
+# Archivo: mi_script.py
+print("¡Hola, mundo!")
+nombre = input("¿Cómo te llamas? ")
+print(f"Encantado de conocerte, {nombre}!")
 ```
-
-O presiona **Ctrl+D** (en Linux/Mac) o **Ctrl+Z** (en Windows)
-
----
-
-### Ejecutar un Script de Python
-
-Un script es un archivo que contiene múltiples líneas de código Python. Los scripts tienen la extensión **.py** y se ejecutan desde la terminal.
-
-#### Paso 1: Crear un archivo
-
-Crea un archivo llamado `mi_script.py` con este contenido:
-
-```python
-# mi_script.py
-print("Este es mi primer script")
-nombre = "Python"
-version = 3.12
-print(f"Estoy aprendiendo {nombre} {version}")
-```
-
-#### Paso 2: Ejecutar el script
-
-Desde la terminal:
 
 ```bash
+# Ejecutar el script
 $ python mi_script.py
-```
 
-#### Resultado:
-
-```
-Este es mi primer script
-Estoy aprendiendo Python 3.12
-```
-
----
-
-### Ejecutar Script en Modo Interactivo
-
-Si quieres ejecutar un script y luego seguir experimentando en modo interactivo, usa la opción **-i**:
-
-```bash
+# Ejecutar en modo interactivo (el shell queda abierto después)
 $ python -i mi_script.py
 ```
 
-Esto ejecutará el script y luego te dejará en el prompt interactivo con todas las variables y funciones del script disponibles para usar.
+**Ventajas del modo interactivo (-i):**
+- El script se ejecuta completamente
+- El shell permanece abierto
+- Puedes inspeccionar variables creadas en el script
+- Útil para debugging y experimentación
 
-> **💡 ¿Cuándo usar cada modo?**
-> 
-> - **Modo Interactivo:** Ideal para experimentar, probar pequeños fragmentos de código, aprender y depurar.
-> - **Scripts:** Para programas completos que quieres guardar, compartir o ejecutar repetidamente.
-
----
-
-## 2. Comentarios en Python
-
-### ¿Qué son los Comentarios?
-
-Los **comentarios** son líneas de texto en tu código que Python *ignora completamente*. No se ejecutan ni afectan el funcionamiento del programa. Su propósito es ayudar a los **humanos** (incluyéndote a ti mismo en el futuro) a entender qué hace el código.
-
-```
-┌──────────────────┐              ┌──────────────────────────┐
-│     Código       │              │      Comentario          │
-│  print('Hola')   │  ─────────▶  │  # Esto es un comentario │
-│   ✓ Se ejecuta   │              │   ✗ Python lo ignora     │
-└──────────────────┘              └──────────────────────────┘
-
-         Python lee solo el código
-      Los comentarios son para humanos
+**Ejemplo:**
+```python
+# Archivo: calculos.py
+resultado = 10 * 5
+print(f"El resultado es: {resultado}")
 ```
 
----
+```bash
+$ python -i calculos.py
+El resultado es: 50
+>>> resultado  # Podemos acceder a la variable
+50
+>>> resultado * 2  # Y seguir trabajando con ella
+100
+```
 
-### ¿Por qué son importantes los comentarios?
-
-1. **Documentación:** Explican qué hace el código y por qué
-2. **Mantenimiento:** Facilitan modificar el código en el futuro
-3. **Colaboración:** Ayudan a otros programadores a entender tu trabajo
-4. **Aprendizaje:** Te recuerdan decisiones de diseño importantes
-5. **Depuración:** Permiten desactivar temporalmente código sin borrarlo
-
----
-
-### Sintaxis de los Comentarios
-
-En Python, los comentarios comienzan con el símbolo **#** (numeral o hash). Todo lo que está después del # en esa línea es un comentario.
-
-> **⚠️ Regla importante:** Siempre deja un espacio después del # para mayor legibilidad.
+**📚 Documentación Oficial:**
+- Tutorial de Python: https://docs.python.org/es/3/tutorial/interpreter.html
+- Usando el intérprete: https://docs.python.org/3/tutorial/interpreter.html
+- Invocación del intérprete: https://docs.python.org/3/using/cmdline.html
 
 ---
 
-### Tipos de Comentarios
+## 2. COMMENTS - Comentarios
 
-#### 1. Comentario de una sola línea
+### 2.1 Teoría de los Comentarios
+
+**¿Qué son los comentarios?**
+Los comentarios son líneas de texto en el código que Python ignora completamente durante la ejecución. Son exclusivamente para los humanos que leen el código.
+
+**Propósito de los comentarios:**
+1. **Explicar el "por qué"**, no el "qué"
+2. Documentar decisiones de diseño
+3. Advertir sobre comportamientos inesperados
+4. Facilitar el mantenimiento futuro del código
+5. Ayudar a otros desarrolladores (o a ti mismo en el futuro)
+
+**Sintaxis:**
+```python
+# Esto es un comentario de una línea
+
+# Los comentarios pueden estar al final de una línea
+print("Hola")  # Esto imprime un saludo
+
+# También puedes comentar código temporalmente
+# print("Esto no se ejecutará")
+```
+
+### 2.2 Buenas Prácticas
+
+**✅ BUENOS comentarios:**
+```python
+# Usar promedio ponderado porque los datos más recientes son más confiables
+promedio = calcular_promedio_ponderado(datos)
+
+# HACK: Esta solución temporal debe reemplazarse cuando se actualice la API
+resultado = workaround_temporal()
+
+# TODO: Agregar validación de entrada aquí
+def procesar_datos(datos):
+    return datos * 2
+```
+
+**❌ MALOS comentarios:**
+```python
+# Incrementar i en 1
+i += 1  # Esto es obvio del código mismo
+
+# Esta función suma dos números
+def sumar(a, b):  # El nombre ya lo dice
+    return a + b
+```
+
+### 2.3 Comentarios Multi-línea
+
+Python no tiene comentarios multi-línea oficiales, pero puedes usar:
 
 ```python
-# Este es un comentario de una sola línea
-print("Hola, mundo")  # También puede ir al final de una línea de código
+# Opción 1: Múltiples comentarios de línea
+# Esta es una explicación
+# que ocupa varias líneas
+# para describir algo complejo
+
+# Opción 2: String de documentación (no es técnicamente un comentario)
+"""
+Esta es una cadena de documentación.
+Se usa frecuentemente como comentario multi-línea,
+aunque técnicamente es una cadena no asignada.
+"""
+
+def mi_funcion():
+    """
+    Esta es una docstring.
+    Documenta qué hace la función.
+    Es la forma oficial de documentar funciones en Python.
+    """
+    pass
 ```
 
-#### 2. Comentarios de múltiples líneas
+### 2.4 Convención PEP 8
 
-Para comentarios largos, usa # en cada línea:
+**Estilo de comentarios según PEP 8:**
+- Siempre incluir un espacio después del `#`
+- Los comentarios deben estar en oraciones completas
+- Usar dos espacios antes de comentarios en línea
+- Limitar comentarios a 72 caracteres por línea
 
 ```python
-# Este programa calcula el área de un círculo.
-# Primero pedimos el radio al usuario.
-# Luego aplicamos la fórmula: área = π * r²
-# Finalmente mostramos el resultado.
+# ✅ Correcto: espacio después del #
+x = 5  # Correcto: dos espacios antes del comentario
 
-import math
-radio = 5
-area = math.pi * radio ** 2
-print(f"El área es: {area}")
+#❌ Incorrecto: sin espacio después del #
+x=5# Incorrecto: sin espacios
 ```
 
----
-
-### Buenas Prácticas para Comentarios
-
-| ✓ HACER | ✗ EVITAR |
-|---------|----------|
-| **Explica el POR QUÉ, no el qué** | **No repitas lo que el código ya dice** |
-| `# Usamos división entera para evitar decimales`<br>`cantidad = total // 2` | `# Divide total por 2`<br>`cantidad = total // 2` |
-| **Mantén los comentarios actualizados** | **Dejar comentarios obsoletos o incorrectos** |
-| **Usa comentarios para decisiones complejas** | **Comentar código obvio** |
-| **Escribe en español claro y conciso** | **Usar jerga o abreviaciones confusas** |
+**📚 Documentación Oficial:**
+- PEP 8 - Guía de Estilo: https://peps.python.org/pep-0008/#comments
+- Comentarios en Python: https://docs.python.org/3/reference/lexical_analysis.html#comments
+- Docstrings (PEP 257): https://peps.python.org/pep-0257/
 
 ---
 
-### Ejemplos Prácticos de Buenos Comentarios
+## 3. DATA TYPES - Tipos de Datos
+
+### 3.1 Python es Dinámicamente Tipado
+
+**Concepto Fundamental:**
+A diferencia de lenguajes como Java o C++, en Python **no necesitas declarar el tipo de una variable**. El tipo se determina automáticamente en tiempo de ejecución según el valor asignado.
 
 ```python
-# Ejemplo 1: Explicando una decisión de diseño
-def calcular_descuento(precio, es_miembro):
-    # Los miembros obtienen 20% de descuento para fomentar la lealtad
-    if es_miembro:
-        return precio * 0.80
-    return precio
+# Python determina automáticamente que x es un entero
+x = 42
 
-# Ejemplo 2: Advertencia importante
-def procesar_pago(tarjeta):
-    # IMPORTANTE: Verificar fecha de expiración antes de procesar
-    # para evitar cargos fallidos
-    if not tarjeta.esta_vigente():
-        return False
-    return procesar_transaccion(tarjeta)
+# Podemos cambiar el tipo de x sin problemas
+x = "ahora soy un string"
 
-# Ejemplo 3: TODOs para trabajo futuro
-def generar_reporte():
-    # TODO: Agregar opción para exportar a PDF
-    # TODO: Incluir gráficos de tendencias
-    datos = obtener_datos()
-    crear_reporte_html(datos)
+# Y cambiar nuevamente
+x = 3.14
 ```
 
-> **💡 Recuerda:** Los buenos comentarios son como un buen mapa: te ayudan a navegar por el código sin perderte. Pero un mapa con demasiada información es confuso, así que comenta solo lo necesario.
+### 3.2 Tipos de Datos Fundamentales
 
----
-
-## 3. Tipos de Datos
-
-### ¿Qué son los Tipos de Datos?
-
-Los **tipos de datos** definen qué clase de información puede contener una variable y qué operaciones se pueden realizar con ella. Es como clasificar objetos en el mundo real: números, texto, verdadero/falso, etc.
-
-> **💡 Analogía:** Imagina que tienes cajas para guardar cosas. Una caja para números, otra para textos, otra para valores verdadero/falso. No puedes sumar texto con texto de la misma forma que sumas números. Los tipos de datos son esas 'cajas' en Python.
-
----
-
-### Tipos de Datos Básicos en Python
-
-```
-┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
-│   int    │  │  float   │  │   str    │  │   bool   │
-│    42    │  │   3.14   │  │  "Hola"  │  │   True   │
-│ Enteros  │  │Decimales │  │  Texto   │  │Verdadero │
-└──────────┘  └──────────┘  └──────────┘  └──────────┘
-
-                    ┌──────────────┐
-                    │     None     │
-                    │ Sin valor    │
-                    └──────────────┘
-```
-
----
-
-### Python es Dinámicamente Tipado
-
-A diferencia de lenguajes como C o Java, en Python **NO necesitas declarar** el tipo de una variable. Python lo determina automáticamente según el valor que le asignes.
-
+**Tipos Numéricos:**
 ```python
-# Python determina el tipo automáticamente
-edad = 25           # Python sabe que es int
-precio = 19.99      # Python sabe que es float
-nombre = "Ana"      # Python sabe que es str
-activo = True       # Python sabe que es bool
-
-# Puedes cambiar el tipo de una variable en cualquier momento
-x = 10              # x es int
-x = "Hola"          # ahora x es str (¡esto es válido!)
-```
-
-> **✅ Ventaja:** Más flexible y fácil de escribir.
-> 
-> **⚠️ Cuidado:** Debes tener cuidado de no cambiar tipos accidentalmente.
-
----
-
-### 1. Enteros (int)
-
-Los enteros son números **sin parte decimal**. Pueden ser positivos, negativos o cero. En Python, los enteros no tienen límite de tamaño (solo limitados por la memoria).
-
-```python
-# Ejemplos de enteros
+# int - Números enteros (tamaño ilimitado en Python 3)
 edad = 25
-temperatura = -5
-poblacion = 1000000
-cero = 0
+grande = 999999999999999999999
 
-# Python puede manejar números muy grandes
-numero_enorme = 123456789012345678901234567890
-
-# Operaciones con enteros
-suma = 10 + 5               # 15
-resta = 10 - 3              # 7
-multiplicacion = 4 * 3      # 12
-division_entera = 10 // 3   # 3 (división sin decimales)
-residuo = 10 % 3            # 1 (resto de la división)
-potencia = 2 ** 3           # 8 (2 elevado a 3)
-```
-
----
-
-### 2. Flotantes (float)
-
-Los flotantes son números **con parte decimal**. Son útiles para mediciones precisas, cálculos científicos y cualquier situación donde necesites decimales.
-
-```python
-# Ejemplos de flotantes
-precio = 19.99
-temperatura = 36.5
+# float - Números de punto flotante (decimales)
 pi = 3.14159
-resultado = 7.0
+temperatura = -15.5
 
-# Notación científica
-velocidad_luz = 3e8         # 3 × 10^8 = 300,000,000
-masa_electron = 9.1e-31     # 9.1 × 10^-31
-
-# Operaciones con flotantes
-suma = 3.5 + 2.1            # 5.6
-division = 10 / 3           # 3.3333333333333335
-
-# ¡Cuidado con la precisión!
-print(0.1 + 0.2)            # 0.30000000000000004 (¡imprecisión!)
+# complex - Números complejos
+complejo = 3 + 4j
 ```
 
-> **📌 Nota sobre precisión:** Los flotantes pueden tener pequeños errores de redondeo debido a cómo las computadoras representan números decimales. Para cálculos financieros precisos, usa el módulo `decimal`.
-
----
-
-### 3. Cadenas de Texto (str)
-
-Las cadenas (strings) son secuencias de caracteres usadas para representar texto. Se definen usando comillas simples (' ') o dobles (" ").
-
+**Tipo Booleano:**
 ```python
-# Ejemplos de cadenas
-nombre = "Ana García"
-ciudad = 'Buenos Aires'
-mensaje = "¡Hola, mundo!"
-
-# Cadenas multilínea (con triple comillas)
-parrafo = """Este es un texto
-que ocupa varias líneas
-sin problema."""
-
-# Operaciones con cadenas
-saludo = "Hola" + " " + "mundo"  # "Hola mundo" (concatenación)
-repetir = "Ja" * 3               # "JaJaJa" (repetición)
-longitud = len("Python")         # 6 (número de caracteres)
-
-# Acceso a caracteres (indexación)
-palabra = "Python"
-print(palabra[0])    # "P" (primer carácter)
-print(palabra[-1])   # "n" (último carácter)
-```
-
----
-
-### 4. Booleanos (bool)
-
-Los booleanos representan valores de **verdad**: `True` (verdadero) o `False` (falso). Son fundamentales para la toma de decisiones en programación.
-
-```python
-# Valores booleanos
-es_mayor_edad = True
+# bool - Valores de verdad (True o False)
+es_mayor = True
 tiene_descuento = False
 
-# Los booleanos resultan de comparaciones
-edad = 18
-es_adulto = edad >= 18    # True
-
-precio = 100
-es_caro = precio > 200    # False
-
-# Operadores lógicos
-tiene_dinero = True
-esta_abierto = True
-puede_comprar = tiene_dinero and esta_abierto  # True (ambos deben ser True)
-
-es_fin_semana = False
-es_feriado = True
-puede_descansar = es_fin_semana or es_feriado  # True (al menos uno True)
-
-esta_lloviendo = True
-lleva_paraguas = not esta_lloviendo  # False (invierte el valor)
+# Los booleanos son subclase de int
+print(True + True)  # 2
+print(False * 10)   # 0
 ```
 
----
-
-### 5. None - Tipo Especial
-
-`None` es un valor especial que representa la **ausencia de valor**. Es útil para indicar que una variable aún no tiene un valor asignado o que una función no devuelve nada.
-
+**Tipo None:**
 ```python
-# Ejemplos de None
-resultado = None        # Inicializar sin valor
-respuesta = None        # Placeholder para usar después
+# NoneType - Representa ausencia de valor
+resultado = None  # Similar a null en otros lenguajes
 
-def buscar_usuario(id):
-    if id == 123:
-        return "Ana"
-    return None        # No se encontró el usuario
-
-# Verificar si algo es None
-if resultado is None:
-    print("No hay resultado todavía")
+# Usado para:
+# - Valores opcionales
+# - Inicialización de variables
+# - Indicar que una función no retorna nada explícitamente
 ```
 
----
+**Tipo Cadena:**
+```python
+# str - Cadenas de texto (secuencias de caracteres)
+nombre = "Python"
+mensaje = 'También con comillas simples'
+```
 
-### Investigando Tipos de Datos
+### 3.3 Investigación de Tipos
 
-Python proporciona funciones útiles para verificar tipos de datos:
+**Función type():**
+```python
+>>> type(42)
+<class 'int'>
+
+>>> type(3.14)
+<class 'float'>
+
+>>> type("Hello")
+<class 'str'>
+
+>>> type(True)
+<class 'bool'>
+
+>>> type(None)
+<class 'NoneType'>
+
+# type() retorna el tipo, no un string
+>>> mi_tipo = type(42)
+>>> print(mi_tipo)
+<class 'int'>
+```
+
+**Función isinstance():**
+Verifica si un objeto es instancia de una clase específica.
 
 ```python
-# Función type() - devuelve el tipo de un valor
-print(type(42))         # <class 'int'>
-print(type(3.14))       # <class 'float'>
-print(type("Hola"))     # <class 'str'>
-print(type(True))       # <class 'bool'>
-print(type(None))       # <class 'NoneType'>
+>>> isinstance(3.14, float)
+True
 
-# Función isinstance() - verifica si es un tipo específico
+>>> isinstance(3.14, int)
+False
+
+# Ventaja: funciona con herencia
+>>> isinstance(True, int)  # bool hereda de int
+True
+
+# Puede verificar múltiples tipos
+>>> isinstance(42, (int, float, str))
+True
+```
+
+**Función issubclass():**
+Verifica relaciones de herencia entre clases.
+
+```python
+>>> issubclass(bool, int)
+True
+
+>>> issubclass(int, object)
+True  # Todo hereda de object en Python
+
+>>> issubclass(str, int)
+False
+```
+
+### 3.4 Conversión de Tipos (Type Casting)
+
+**Conversión Explícita:**
+```python
+# String a número
+num_str = "42"
+num_int = int(num_str)        # 42
+num_float = float(num_str)    # 42.0
+
+# Número a string
 edad = 25
-print(isinstance(edad, int))      # True
-print(isinstance(edad, str))      # False
+texto = str(edad)             # "25"
 
-precio = 19.99
-print(isinstance(precio, float))  # True
+# A booleano (importante: valores "falsy" y "truthy")
+bool(1)          # True
+bool(0)          # False
+bool("")         # False (string vacío)
+bool("Python")   # True (string no vacío)
+bool([])         # False (lista vacía)
+bool([1, 2])     # True (lista con elementos)
+
+# String a lista
+letras = list("abc")  # ["a", "b", "c"]
+
+# Conversiones que pueden fallar
+int("3.14")       # ValueError: invalid literal
+int("cuarenta")   # ValueError: invalid literal
 ```
 
----
-
-### Conversión de Tipos (Type Casting)
-
-Puedes convertir un tipo de dato a otro usando funciones de conversión:
-
+**Conversiones Seguras con Manejo de Errores:**
 ```python
-# Convertir a entero
-numero = int("42")        # "42" (str) → 42 (int)
-entero = int(3.9)         # 3.9 (float) → 3 (int) - ¡trunca decimales!
+def convertir_a_entero(valor):
+    try:
+        return int(valor)
+    except ValueError:
+        print(f"No se puede convertir '{valor}' a entero")
+        return None
 
-# Convertir a flotante
-decimal = float("3.14")   # "3.14" (str) → 3.14 (float)
-flotante = float(10)      # 10 (int) → 10.0 (float)
-
-# Convertir a cadena
-texto = str(42)           # 42 (int) → "42" (str)
-texto2 = str(True)        # True (bool) → "True" (str)
-
-# Convertir a booleano
-bool(1)      # True (cualquier número != 0 es True)
-bool(0)      # False
-bool("")     # False (cadena vacía es False)
-bool("Hola") # True (cadena con contenido es True)
+resultado = convertir_a_entero("123")    # 123
+resultado = convertir_a_entero("abc")    # None (con mensaje de error)
 ```
 
-> **⚠️ ¡Importante!** No todas las conversiones son posibles. Por ejemplo, `int('Hola')` producirá un error porque 'Hola' no es un número válido.
+### 3.5 Jerarquía de Tipos en Python
+
+```
+object (todos heredan de object)
+  ├── NoneType
+  ├── números
+  │   ├── int
+  │   │   └── bool
+  │   ├── float
+  │   └── complex
+  ├── str
+  ├── bytes
+  ├── collections
+  │   ├── list
+  │   ├── tuple
+  │   ├── dict
+  │   └── set
+  └── ...
+```
+
+**📚 Documentación Oficial:**
+- Tipos integrados: https://docs.python.org/es/3/library/stdtypes.html
+- Funciones integradas (type, isinstance): https://docs.python.org/3/library/functions.html
+- Sistema de tipos: https://docs.python.org/3/reference/datamodel.html
 
 ---
 
-## 4. Variables y Asignación
+## 4. VARIABLES & ASSIGNMENT - Variables y Asignación
 
-### ¿Qué es una Variable?
+### 4.1 Concepto de Variables
 
-Una **variable** es como una caja etiquetada donde guardas información. El nombre de la variable es la etiqueta, y el valor que le asignas es lo que hay dentro de la caja.
+**¿Qué es una variable?**
+Una variable es un **nombre que hace referencia a un valor en memoria**. En Python, las variables son etiquetas o referencias, no "cajas" que contienen valores.
 
-```
-┌──────────────────┐
-│   Variable:      │
-│      edad        │  ← Nombre (etiqueta)
-├──────────────────┤
-│       25         │  ← Valor (contenido)
-└──────────────────┘
-```
-
-> **💡 Analogía:** Piensa en las variables como cajas de almacenamiento en tu memoria. Cada caja tiene un nombre único (el identificador) y puede contener un valor. Cuando necesitas ese valor, solo llamas a la caja por su nombre.
-
----
-
-### Crear y Asignar Variables
-
-Para crear una variable en Python, simplemente asignas un valor usando el operador **=**. La variable se crea en el momento de la asignación.
-
+**Modelo Mental Correcto:**
 ```python
-# Sintaxis básica: nombre = valor
-nombre = "Leo"          # Variable 'nombre' contiene "Leo"
-edad = 7                # Variable 'edad' contiene 7
-altura = 5.6            # Variable 'altura' contiene 5.6
-es_gato = True          # Variable 'es_gato' contiene True
-defectos = None         # Variable 'defectos' contiene None
-
-# Las variables se pueden usar después de crearlas
-print(nombre)           # Leo
-print(edad + 3)         # 10
+# No pienses: "x contiene el valor 42"
+# Piensa: "x es una etiqueta que apunta al objeto 42"
+x = 42
 ```
 
----
-
-### Reglas para Nombres de Variables
-
-Python tiene reglas estrictas sobre cómo puedes nombrar variables:
-
-| ✓ VÁLIDO | ✗ INVÁLIDO | EXPLICACIÓN |
-|----------|------------|-------------|
-| `edad` | `2edad` | No puede empezar con número |
-| `nombre_completo` | `nombre-completo` | Usa guion bajo (_), no guion (-) |
-| `precio_USD` | `precio USD` | No puede contener espacios |
-| `es_valido` | `es-válido` | Evita caracteres especiales y acentos |
-| `MAX_VALOR` | `class` | 'class' es palabra reservada de Python |
-| `dato1` | `1dato` | No puede empezar con número |
-
----
-
-### Convención: snake_case
-
-En Python, la convención estándar es usar **snake_case** para nombres de variables: todo en minúsculas, separando palabras con guiones bajos (_).
-
+**Demostración:**
 ```python
-# ✓ Estilo recomendado (snake_case)
-nombre_completo = "Ana García"
-precio_total = 150.50
-es_mayor_edad = True
-numero_intentos = 3
+>>> a = [1, 2, 3]
+>>> b = a  # b apunta al MISMO objeto que a
+>>> b.append(4)
+>>> print(a)  # ¡a también cambió!
+[1, 2, 3, 4]
 
-# ✗ Otros estilos (NO recomendados en Python para variables)
-NombreCompleto = "Ana"    # PascalCase (se usa para clases)
-precioTotal = 150.50      # camelCase (común en JavaScript)
+>>> id(a) == id(b)  # Mismo objeto en memoria
+True
 ```
 
----
+### 4.2 Creación de Variables
 
-### Usa Nombres Descriptivos
-
-El nombre de una variable debe describir claramente qué contiene. Código claro es mejor que código corto.
-
-| ✗ MALO | ✓ BUENO | ¿POR QUÉ? |
-|--------|---------|-----------|
-| `x = 25` | `edad = 25` | 'edad' es más descriptivo que 'x' |
-| `t = 36.5` | `temperatura = 36.5` | Queda claro qué representa |
-| `d = True` | `descuento_activo = True` | Indica exactamente qué significa |
-| `n = "Ana"` | `nombre_usuario = "Ana"` | Específico y claro |
-
----
-
-### Asignaciones Múltiples
-
-Python permite asignar valores a múltiples variables en una sola línea:
-
-#### 1. Asignación Paralela
-
+**Asignación Básica:**
 ```python
-# Asignar diferentes valores a múltiples variables
+# La variable se crea en el momento de la asignación
+nombre = "Leo"        # Se crea 'nombre'
+edad = 7              # Se crea 'edad'
+altura = 5.6          # Se crea 'altura'
+es_gato = True        # Se crea 'es_gato'
+defectos = None       # Se crea 'defectos'
+
+# No necesitas declaración previa (como en C o Java)
+# int edad;  // ← Esto NO es necesario en Python
+```
+
+### 4.3 Convenciones de Nombres
+
+**snake_case (lo recomendado para variables):**
+```python
+# ✅ Correcto - snake_case
+nombre_completo = "Juan Pérez"
+edad_usuario = 30
+total_ventas_2024 = 150000
+
+# ❌ Incorrecto para Python (aunque válido)
+nombreCompleto = "Juan Pérez"     # camelCase (usado en Java/JavaScript)
+NombreCompleto = "Juan Pérez"     # PascalCase (usado para clases)
+nombre-completo = "Juan Pérez"    # ¡ERROR! guiones no permitidos
+```
+
+**Reglas para nombres de variables:**
+```python
+# ✅ Válido
+_privado = 10
+numero1 = 20
+CONSTANTE = 100
+
+# ❌ Inválido
+1numero = 20      # No puede empezar con número
+mi-variable = 30  # No puede contener guiones
+class = 40        # No puede ser palabra reservada
+```
+
+**Nombres Descriptivos:**
+```python
+# ❌ Mal - no descriptivo
+x = 25
+d = 30
+t = x * d
+
+# ✅ Bien - descriptivo
+precio_unitario = 25
+cantidad = 30
+total = precio_unitario * cantidad
+```
+
+### 4.4 Asignaciones Múltiples
+
+**Asignación Paralela (Unpacking):**
+```python
+# Asignar múltiples valores simultáneamente
 x, y = 10, 20
 print(x)  # 10
 print(y)  # 20
 
-# Útil para intercambiar valores
+# Intercambiar valores (¡sin variable temporal!)
 a, b = 5, 10
-a, b = b, a  # ¡Intercambio en una línea!
-print(a)  # 10
-print(b)  # 5
+a, b = b, a  # Pythonic way
+print(a, b)  # 10, 5
 
-# Con más variables
-nombre, edad, ciudad = "Ana", 25, "Buenos Aires"
+# Con más valores
+nombre, edad, ciudad = "Ana", 28, "Madrid"
+
+# Desempacar una lista o tupla
+coordenadas = (3, 4)
+x, y = coordenadas
 ```
 
-#### 2. Asignación Encadenada
-
-Asignar el mismo valor a múltiples variables:
-
+**Asignación Encadenada:**
 ```python
-# Todas las variables tienen el mismo valor
+# Dar el mismo valor a múltiples variables
 a = b = c = 0
 print(a, b, c)  # 0 0 0
 
-# Otro ejemplo
-x = y = z = "Python"
-print(x)  # Python
-print(y)  # Python
-print(z)  # Python
+# ⚠️ CUIDADO con objetos mutables
+lista1 = lista2 = []  # ¡Apuntan a la MISMA lista!
+lista1.append(1)
+print(lista2)  # [1] - ¡también se modificó!
+
+# Mejor manera con objetos mutables:
+lista1 = []
+lista2 = []  # Listas diferentes
 ```
 
----
+**Desempaquetado Extendido:**
+```python
+# Con el operador * (Python 3+)
+primero, *resto = [1, 2, 3, 4, 5]
+print(primero)  # 1
+print(resto)    # [2, 3, 4, 5]
 
-### Asignaciones Aumentadas (Operadores Compuestos)
+# Ignorar valores con _
+nombre, _, edad = ("Ana", "García", 28)
+print(nombre, edad)  # Ana 28
 
-Los operadores de asignación aumentada combinan una operación aritmética con asignación. Son atajos convenientes:
+# En el medio
+primero, *medio, ultimo = [1, 2, 3, 4, 5]
+print(primero)  # 1
+print(medio)    # [2, 3, 4]
+print(ultimo)   # 5
+```
+
+### 4.5 Asignaciones Aumentadas
+
+**Operadores Aumentados:**
+```python
+# Forma larga
+contador = 0
+contador = contador + 1
+
+# Forma corta (preferida)
+contador = 0
+contador += 1  # Equivalente a: contador = contador + 1
+
+# Otros operadores aumentados
+x = 10
+x -= 3   # x = x - 3      → 7
+x *= 2   # x = x * 2      → 14
+x /= 7   # x = x / 7      → 2.0
+x //= 2  # x = x // 2     → 1
+x %= 3   # x = x % 3      → 1
+x **= 3  # x = x ** 3     → 1
+
+# Con strings
+saludo = "Hola"
+saludo += " Mundo"  # "Hola Mundo"
+
+# Con listas
+numeros = [1, 2]
+numeros += [3, 4]  # [1, 2, 3, 4]
+
+# Con operadores bit a bit
+permisos = 0b1000
+permisos |= 0b0100  # OR bit a bit
+permisos &= 0b1100  # AND bit a bit
+```
+
+### 4.6 El Operador Walrus (:=) - Python 3.8+
+
+**Asignación en Expresiones:**
+```python
+# Antes de Python 3.8
+datos = input("Escribe algo: ")
+if len(datos) > 10:
+    print(f"Demasiado largo: {len(datos)}")
+
+# Con el operador walrus (Python 3.8+)
+if (n := len(input("Escribe algo: "))) > 10:
+    print(f"Demasiado largo: {n}")
+
+# Útil en while loops
+while (linea := archivo.readline()) != "":
+    procesar(linea)
+
+# En comprehensions
+[y for x in datos if (y := procesar(x)) > 0]
+```
+
+### 4.7 Ámbito (Scope) de Variables
 
 ```python
-# Operadores de asignación aumentada
-contador = 10
-contador += 1    # Equivale a: contador = contador + 1
-print(contador)  # 11
+# Variable global
+global_var = "Soy global"
 
-contador -= 3    # Equivale a: contador = contador - 3
-print(contador)  # 8
+def mi_funcion():
+    # Variable local
+    local_var = "Soy local"
+    print(global_var)  # Puede leer globales
+    print(local_var)
 
-precio = 100
-precio *= 2      # Equivale a: precio = precio * 2
-print(precio)    # 200
-
-precio /= 4      # Equivale a: precio = precio / 4
-print(precio)    # 50.0
-
-# Con listas (agregar elementos)
-numeros = [1, 2, 3]
-numeros += [4, 5]  # Equivale a: numeros = numeros + [4, 5]
-print(numeros)     # [1, 2, 3, 4, 5]
+mi_funcion()
+# print(local_var)  # ¡ERROR! No existe fuera de la función
 ```
 
-#### Tabla de Operadores Aumentados
-
-| Operador | Equivalente | Ejemplo | Resultado |
-|----------|-------------|---------|-----------|
-| `+=` | `x = x + y` | `x = 10; x += 3` | `x = 13` |
-| `-=` | `x = x - y` | `x = 10; x -= 3` | `x = 7` |
-| `*=` | `x = x * y` | `x = 10; x *= 3` | `x = 30` |
-| `/=` | `x = x / y` | `x = 10; x /= 2` | `x = 5.0` |
-| `//=` | `x = x // y` | `x = 10; x //= 3` | `x = 3` |
-| `%=` | `x = x % y` | `x = 10; x %= 3` | `x = 1` |
-| `**=` | `x = x ** y` | `x = 2; x **= 3` | `x = 8` |
+**📚 Documentación Oficial:**
+- Tutorial sobre variables: https://docs.python.org/es/3/tutorial/introduction.html#using-python-as-a-calculator
+- Asignaciones: https://docs.python.org/3/reference/simple_stmts.html#assignment-statements
+- PEP 8 - Convenciones de nombres: https://peps.python.org/pep-0008/#naming-conventions
+- Operador Walrus (PEP 572): https://peps.python.org/pep-0572/
 
 ---
 
-## 📝 Resumen de la Clase 1
+## 5. STRINGS - Cadenas de Texto
 
-En esta primera clase hemos cubierto los fundamentos esenciales de Python:
+### 5.1 Fundamentos de Strings
 
-✓ **Intérprete de Python:** Aprendiste cómo Python ejecuta tu código a través del proceso de lexing, parsing, compilación a bytecode y ejecución en la PVM.
+**¿Qué es un string?**
+Un string es una **secuencia inmutable de caracteres Unicode**. "Inmutable" significa que una vez creado, no puedes modificar sus caracteres individuales.
 
-✓ **Modos de ejecución:** Modo interactivo (REPL) para experimentar y scripts (.py) para programas completos.
+```python
+texto = "Python"
+# texto[0] = "J"  # ¡ERROR! Los strings son inmutables
 
-✓ **Comentarios:** Cómo documentar tu código usando # y las mejores prácticas para escribir comentarios útiles.
+# Para "modificar", creas un nuevo string
+texto = "J" + texto[1:]  # "Jython"
+```
 
-✓ **Tipos de datos:** Los tipos fundamentales (int, float, str, bool, None) y cómo Python determina tipos automáticamente.
+### 5.2 Crear Strings
 
-✓ **Variables:** Cómo crear y nombrar variables siguiendo convenciones (snake_case), y diferentes formas de asignación.
+**Comillas Simples vs Dobles:**
+```python
+# Ambas formas son válidas
+simple = 'Hola'
+doble = "Mundo"
+
+# PEP 8 recomienda ser consistente (Real Python prefiere dobles)
+recomendado = "Python"
+
+# Útil cuando el texto contiene comillas
+con_apostrofe = "It's a beautiful day"
+con_comillas = 'Él dijo: "Hola"'
+
+# O escapar
+con_escape = 'It\'s a beautiful day'
+```
+
+**Strings Multi-línea:**
+```python
+# Con triple comillas (''' o """)
+poema = """
+Roses are red,
+Violets are blue,
+Python is awesome,
+And so are you!
+"""
+
+# Mantiene saltos de línea y espacios
+sql = """
+SELECT nombre, edad
+FROM usuarios
+WHERE edad > 18
+"""
+```
+
+**Caracteres de Escape:**
+```python
+# Saltos de línea y tabulaciones
+texto = "Línea 1\nLínea 2\tcon tab"
+
+# Barra invertida
+ruta = "C:\\Users\\Documents"  # Windows path
+
+# Comillas dentro de strings
+dialogo = "Ella dijo: \"¡Hola!\""
+```
+
+### 5.3 Operaciones con Strings
+
+**Concatenación:**
+```python
+# Con el operador +
+saludo = "Hola" + " " + "Mundo"  # "Hola Mundo"
+
+# Concatenación implícita (literales adyacentes)
+largo = "Este es un texto " "muy largo"
+
+# ⚠️ Evita concatenar en loops (ineficiente)
+# ❌ Mal
+resultado = ""
+for palabra in palabras:
+    resultado += palabra  # Crea un nuevo string cada vez
+
+# ✅ Mejor
+resultado = "".join(palabras)
+```
+
+**Repetición:**
+```python
+# Con el operador *
+linea = "-" * 50  # "--------------------------------------------------"
+eco = "Eco! " * 3  # "Eco! Eco! Eco! "
+
+# Útil para separadores
+print("=" * 20)
+print("Título")
+print("=" * 20)
+```
+
+**Longitud:**
+```python
+texto = "Python"
+longitud = len(texto)  # 6
+
+# Útil para validaciones
+password = input("Password: ")
+if len(password) < 8:
+    print("Password muy corto")
+```
+
+### 5.4 Métodos de Strings
+
+**Cambio de Mayúsculas/Minúsculas:**
+```python
+texto = "Python Programming"
+
+texto.upper()        # "PYTHON PROGRAMMING"
+texto.lower()        # "python programming"
+texto.capitalize()   # "Python programming"
+texto.title()        # "Python Programming"
+texto.swapcase()     # "pYTHON pROGRAMMING"
+
+# Verificación
+"python".islower()   # True
+"PYTHON".isupper()   # True
+"Python".istitle()   # True
+```
+
+**Limpieza de Espacios:**
+```python
+texto = "  espacios  "
+
+texto.strip()    # "espacios" (ambos lados)
+texto.lstrip()   # "espacios  " (izquierda)
+texto.rstrip()   # "  espacios" (derecha)
+
+# Remover caracteres específicos
+"www.ejemplo.com".strip("cmowz.")  # "ejemplo"
+```
+
+**Búsqueda y Reemplazo:**
+```python
+texto = "Python es genial"
+
+texto.replace("genial", "asombroso")  # "Python es asombroso"
+texto.find("es")                       # 7 (índice donde comienza)
+texto.find("Java")                     # -1 (no encontrado)
+"es" in texto                          # True (más Pythonic)
+texto.count("n")                       # 1 (cuántas veces aparece)
+
+# startswith y endswith
+archivo = "documento.pdf"
+archivo.endswith(".pdf")    # True
+archivo.startswith("doc")   # True
+```
+
+**División y Unión:**
+```python
+# split() - dividir string en lista
+frase = "Python es genial"
+palabras = frase.split()  # ["Python", "es", "genial"]
+
+csv = "nombre,edad,ciudad"
+datos = csv.split(",")  # ["nombre", "edad", "ciudad"]
+
+# splitlines() - dividir por líneas
+texto = "Línea 1\nLínea 2\nLínea 3"
+lineas = texto.splitlines()  # ["Línea 1", "Línea 2", "Línea 3"]
+
+# join() - unir lista en string
+palabras = ["Python", "es", "genial"]
+frase = " ".join(palabras)  # "Python es genial"
+
+ruta = "/".join(["home", "user", "documents"])  # "home/user/documents"
+```
+
+### 5.5 Indexing y Slicing
+
+**Indexación:**
+```python
+texto = "Python"
+
+# Índices positivos (desde el inicio)
+texto[0]   # "P" (primer carácter)
+texto[1]   # "y"
+texto[5]   # "n" (último)
+
+# Índices negativos (desde el final)
+texto[-1]  # "n" (último)
+texto[-2]  # "o" (penúltimo)
+texto[-6]  # "P" (primer carácter)
+
+# IndexError si el índice no existe
+# texto[10]  # ¡ERROR!
+```
+
+**Slicing (Rebanadas):**
+```python
+texto = "Python Programming"
+
+# Sintaxis: [inicio:fin:paso]
+texto[0:6]    # "Python" (caracteres 0 a 5)
+texto[7:18]   # "Programming"
+
+# Omitir inicio (desde el principio)
+texto[:6]     # "Python"
+
+# Omitir fin (hasta el final)
+texto[7:]     # "Programming"
+
+# Con paso
+texto[::2]    # "Pto rgamn" (cada 2do carácter)
+texto[1::2]   # "yhnPoamig" (cada 2do desde índice 1)
+
+# Invertir string
+texto[::-1]   # "gnimmargorP nohtyP"
+
+# Rangos negativos
+texto[-11:-1] # "Programmin"
+texto[:-1]    # "Python Programmin" (sin último carácter)
+```
+
+**Ejemplos Prácticos:**
+```python
+# Extraer extensión de archivo
+archivo = "documento.pdf"
+extension = archivo[-3:]  # "pdf"
+
+# Verificar prefijo
+url = "https://ejemplo.com"
+if url[:8] == "https://":
+    print("URL segura")
+
+# Censurar parte de un string
+tarjeta = "1234-5678-9012-3456"
+censurada = "****-****-****-" + tarjeta[-4:]  # "****-****-****-3456"
+```
+
+### 5.6 Formateo de Strings
+
+**f-strings (Python 3.6+) - RECOMENDADO:**
+```python
+nombre = "Ana"
+edad = 28
+
+# Básico
+mensaje = f"Hola, {nombre}"  # "Hola, Ana"
+
+# Expresiones
+resultado = f"{nombre} tiene {edad} años"  # "Ana tiene 28 años"
+
+# Operaciones dentro de {}
+precio = 19.99
+iva = f"Total con IVA: ${precio * 1.21:.2f}"  # "Total con IVA: $24.19"
+
+# Debug (Python 3.8+)
+x = 10
+print(f"{x=}")  # "x=10"
+
+# Formato de números
+pi = 3.14159
+f"{pi:.2f}"      # "3.14" (2 decimales)
+f"{pi:10.2f}"    # "      3.14" (10 caracteres, 2 decimales)
+f"{pi:010.2f}"   # "0000003.14" (rellenar con ceros)
+
+# Formato de enteros
+numero = 42
+f"{numero:05d}"  # "00042" (5 dígitos con ceros)
+f"{numero:b}"    # "101010" (binario)
+f"{numero:x}"    # "2a" (hexadecimal)
+
+# Alineación
+f"{'izq':<10}"   # "izq       " (izquierda)
+f"{'centro':^10}"  # "  centro  " (centro)
+f"{'der':>10}"   # "       der" (derecha)
+```
+
+**Método .format():**
+```python
+# Básico
+"Hola, {}".format("Mundo")  # "Hola, Mundo"
+
+# Con nombres
+plantilla = "Hola, {nombre}. Tienes {edad} años"
+plantilla.format(nombre="Carlos", edad=30)
+
+# Por posición
+"{0} y {1}".format("A", "B")   # "A y B"
+"{1} y {0}".format("A", "B")   # "B y A"
+
+# Con formato
+"Pi: {:.2f}".format(3.14159)  # "Pi: 3.14"
+```
+
+**%-formatting (estilo antiguo, no recomendado):**
+```python
+# Aún funcional pero obsoleto
+"Hola, %s" % "Mundo"           # "Hola, Mundo"
+"%d + %d = %d" % (5, 3, 8)     # "5 + 3 = 8"
+"Pi: %.2f" % 3.14159           # "Pi: 3.14"
+```
+
+### 5.7 Raw Strings
+
+**Strings Crudos (Raw):**
+```python
+# Normal string - interpreta escapes
+normal = "C:\new\test"  # \n y \t son interpretados
+print(normal)  # C:
+               # ew	est
+
+# Raw string - NO interpreta escapes
+raw = r"C:\new\test"
+print(raw)  # C:\new\test
+
+# Útil para:
+# - Rutas de Windows
+ruta = r"C:\Users\Documents\file.txt"
+
+# - Expresiones regulares
+patron = r"\d{3}-\d{3}-\d{4}"  # Patrón de teléfono
+
+# - Strings con muchos backslashes
+latex = r"\begin{equation} x^2 + y^2 = r^2 \end{equation}"
+```
+
+### 5.8 Verificación de Contenido
+
+```python
+texto = "Python3"
+
+# Tipo de contenido
+texto.isalpha()    # False (contiene número)
+texto.isdigit()    # False (contiene letras)
+texto.isalnum()    # True (alfanumérico)
+texto.isspace()    # False
+"123".isdigit()    # True
+"   ".isspace()    # True
+
+# Verificaciones de formato
+"python".islower()  # True
+"PYTHON".isupper()  # True
+"123abc".isalnum()  # True
+```
+
+### 5.9 Strings son Inmutables
+
+```python
+# Importante: los strings NO se pueden modificar
+texto = "Python"
+
+# ❌ Esto NO funciona
+# texto[0] = "J"  # TypeError
+
+# ✅ Debes crear un nuevo string
+texto = "J" + texto[1:]  # "Jython"
+
+# Los métodos retornan NUEVOS strings
+original = "python"
+mayuscula = original.upper()  # Nuevo string
+print(original)   # "python" (sin cambios)
+print(mayuscula)  # "PYTHON"
+```
+
+**📚 Documentación Oficial:**
+- Tutorial de Strings: https://docs.python.org/es/3/tutorial/introduction.html#strings
+- Métodos de strings: https://docs.python.org/3/library/stdtypes.html#string-methods
+- Formateo de strings: https://docs.python.org/3/library/string.html#formatstrings
+- f-strings (PEP 498): https://peps.python.org/pep-0498/
 
 ---
 
-## 🎯 Ejercicios para Practicar
-
-### Ejercicio 1
-Abre el intérprete de Python y experimenta con:
-- Crear variables de diferentes tipos
-- Hacer operaciones matemáticas
-- Convertir entre tipos de datos
-
-### Ejercicio 2
-Crea un script llamado `mi_info.py` que:
-- Guarde tu nombre, edad y ciudad en variables
-- Imprima un mensaje presentándote usando esas variables
-- Incluya comentarios explicando cada línea
-
-### Ejercicio 3
-Escribe código que:
-- Cree dos variables numéricas (edad1 y edad2)
-- Calcule el promedio usando operadores
-- Imprima el resultado con un mensaje descriptivo
-
-### Ejercicio 4
-Experimenta con `type()` e `isinstance()`:
-- Crea variables de cada tipo básico
-- Verifica sus tipos con `type()`
-- Usa `isinstance()` para confirmar los tipos
-
----
-
-## 🚀 Próximos Pasos
-
-En la próxima clase exploraremos:
-
-- **Cadenas de texto avanzadas:** Métodos, formateo, slicing
-- **Estructuras condicionales:** if, elif, else
-- **Operadores de comparación y lógicos:** ==, !=, and, or, not
-- **Introducción a loops:** for y while
-
----
-
-## 🎉 ¡Felicitaciones!
-
-Has dado tus primeros pasos en Python. La clave del éxito es la **práctica constante**. Experimenta con el código, prueba cosas nuevas y no temas cometer errores - ¡los errores son oportunidades de aprendizaje!
-
-> *"El código es como el humor. Cuando tienes que explicarlo, es malo."* - Cory House
-
----
-
-**Preparado por:** Mauricio Mercado
-**Fecha:** Noviembre 2025
-**Clase:** 1 de Python para Principiantes
