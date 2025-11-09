@@ -3,6 +3,10 @@
 Curso práctico desde cero.
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![GitHub](https://img.shields.io/badge/GitHub-v2.0-black.svg)](https://github.com/Mauroquil-bit/curso_principiantes_python_2025)
+[![Docker](https://img.shields.io/badge/Docker-v20.10-blue.svg)](https://www.docker.com/)
+[![Postman](https://img.shields.io/badge/Postman-v9.0-orange.svg)](https://www.postman.com/)
+[![N8N](https://img.shields.io/badge/N8N-v0.200.0-green.svg)](https://n8n.io/)
 [![Licencia](https://img.shields.io/badge/Licencia-MIT-green.svg)](LICENSE)
 [![Estado](https://img.shields.io/badge/Estado-En%20Desarrollo-yellow.svg)]()
 
