@@ -30,8 +30,8 @@ Este es un curso integral diseñado para personas que quieren **empezar en el de
 
 - **Python** → El lenguaje de programación
 - **Git/GitHub** → Control de versiones y colaboración
-- **Postman** → Testing de APIs
 - **Docker** → Contenerización de aplicaciones
+- **Postman** → Testing de APIs
 - **N8N** → Automatización de flujos de trabajo
 
 ### ¿Por qué este curso es diferente?
@@ -65,75 +65,6 @@ Este es un curso integral diseñado para personas que quieren **empezar en el de
 
 ---
 
-## 📚 Contenido Disponible
-
-### 🐍 Módulo 1: Python Básico
-
-#### Clase 1: Strings Fundamentales
-📂 `clase-01-strings/`
-
-**Temas:**
-- ¿Qué son los strings?
-- Operaciones básicas (concatenación, repetición)
-- Indexing y slicing
-- String formatting con f-strings
-- Strings multilínea (triple comillas)
-- Ejercicios prácticos con casos reales
-
-**Ejemplos prácticos:**
-- Manipulación de texto del comando `ipconfig`
-- Formateo de reportes
-- Extracción de información
-
----
-
-#### Clase 2: Métodos de Strings
-📂 `clase-02-metodos/`
-
-**Temas:**
-- ¿Qué son los métodos?
-- Diferencia entre métodos y funciones
-- Métodos de transformación: `.upper()`, `.lower()`, `.strip()`
-- Métodos de búsqueda: `.find()`, `.count()`, `.startswith()`
-- Métodos de modificación: `.replace()`, `.split()`, `.join()`
-- Ejercicios avanzados
-
-**Habilidades que desarrollarás:**
-- Limpiar y formatear datos
-- Buscar y extraer información
-- Transformar texto según necesidades
-- Resolver problemas reales con strings
-
----
-
-### 🔜 Próximos Módulos
-
-#### 🐍 Python (Clases 3-8)
-- Variables y tipos de datos
-- Operadores y expresiones
-- Condicionales (if/elif/else)
-- Loops (for/while)
-- Funciones
-- Listas y Tuplas
-- Diccionarios
-- Manejo de archivos
-
-#### 📁 Git & GitHub (Módulo 2)
-- Introducción a control de versiones
-- Comandos básicos de Git
-- Trabajar con GitHub
-- Flujo de trabajo colaborativo
-- Resolución de conflictos
-
-#### 🔧 Postman (Módulo 3)
-- ¿Qué es una API?
-- Instalación y configuración de Postman
-- Métodos HTTP (GET, POST, PUT, DELETE)
-- Testing de APIs
-- Colecciones y entornos
-
----
-
 ## 🎓 ¿Para quién es este curso?
 
 ✅ **Principiantes absolutos** en programación  
@@ -156,11 +87,8 @@ Este es un curso integral diseñado para personas que quieren **empezar en el de
 ### Software Necesario
 
 Para empezar con Python:
-- **Python 3.8 o superior** → [Descargar aquí](https://www.python.org/downloads/)
-- **Editor de código** (elige uno):
-  - [VS Code](https://code.visualstudio.com/) (Recomendado)
-  - [PyCharm Community](https://www.jetbrains.com/pycharm/download/)
-  - Cualquier editor de texto
+- **Python 3 o superior** → [Descargar aquí](https://www.python.org/downloads/)
+- **Editor de código**: Usaremos **IDLE** (se instala automáticamente con Python)
 
 Para Git/GitHub (lo veremos más adelante):
 - **Git** → [Descargar aquí](https://git-scm.com/downloads)
@@ -179,7 +107,11 @@ Para Postman (lo veremos después):
 
 ## 🚀 Cómo Usar Este Curso
 
-### Opción 1: Clonar el Repositorio (Recomendado)
+### Opción 1: Ver Online
+
+Simplemente navega por las carpetas aquí en GitHub y lee los archivos `.md` y `.py`
+
+### Opción 2: Clonar el Repositorio (Recomendado)
 ```bash
 # Clona el repositorio
 git clone https://github.com/Mauroquil-bit/curso_principiantes_python_2025.git
@@ -191,16 +123,12 @@ cd curso_principiantes_python_2025
 cd clase-01-strings
 ```
 
-### Opción 2: Descargar ZIP
+### Opción 3: Descargar ZIP
 
 1. Click en el botón verde **"Code"** arriba
 2. Selecciona **"Download ZIP"**
 3. Descomprime el archivo
 4. Abre la carpeta en tu editor
-
-### Opción 3: Ver Online
-
-Simplemente navega por las carpetas aquí en GitHub y lee los archivos `.md` y `.py`
 
 ---
 
@@ -229,38 +157,6 @@ La práctica hace al maestro 🎯
 
 ---
 
-## 📂 Estructura del Proyecto
-```
-curso_principiantes_python_2025/
-│
-├── README.md                    # 👈 Estás aquí
-├── LICENSE                      # Licencia MIT
-│
-├── clase-01-strings/           # ✅ Disponible
-│   ├── README.md               # Introducción y teoría
-│   ├── ejemplos.py             # Código de ejemplo
-│   ├── ejercicios.md           # Ejercicios propuestos
-│   └── soluciones.py           # Soluciones (intenta no mirar!)
-│
-├── clase-02-metodos/           # ✅ Disponible
-│   ├── README.md
-│   ├── ejemplos.py
-│   ├── ejercicios.md
-│   └── soluciones.py
-│
-├── clase-03-variables/         # 🔜 Próximamente
-├── clase-04-condicionales/     # 🔜 Próximamente
-├── modulo-git/                 # 🔜 Próximamente
-├── modulo-postman/             # 🔜 Próximamente
-│
-└── recursos/
-    ├── referencias.md          # Recursos adicionales
-    ├── cheatsheets/            # Hojas de referencia rápida
-    └── proyectos/              # Proyectos integradores
-```
-
----
-
 ## 🌟 Fuentes y Referencias
 
 Este curso ha sido desarrollado consultando y adaptando contenido de fuentes confiables:
@@ -268,7 +164,6 @@ Este curso ha sido desarrollado consultando y adaptando contenido de fuentes con
 ### Python
 - **[Python.org](https://docs.python.org/3/)** - Documentación oficial
 - **[Real Python](https://realpython.com)** - Tutoriales y mejores prácticas
-- **Real Python Pocket Reference** - Guía de referencia rápida
 
 ### Git & GitHub
 - **[GitHub Education](https://education.github.com/)** - Recursos educativos
@@ -341,24 +236,29 @@ git push origin mejora/nueva-funcionalidad
 
 ## 📜 Licencia
 
-Este proyecto está bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la **Licencia Creative Commons Attribution 4.0 International (CC BY 4.0)** - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+[![CC BY 4.0][cc-by-shield]][cc-by]
 
 ### ¿Qué significa esto?
 
 ✅ **Puedes usar** este material libremente  
 ✅ **Puedes modificar** el contenido para tus necesidades  
 ✅ **Puedes compartir** con quien quieras  
-✅ **Puedes usar** para fines comerciales (enseñar, incluir en tu curso, etc.)  
+✅ **Puedes usar** para fines comerciales (enseñar, vender cursos, etc.)  
 
 **Solo te pido:**
-- Dar crédito mencionando este repositorio
-- Mantener la licencia si redistribuyes
+- 📌 Dar crédito mencionando este repositorio
+- 🔗 Incluir un enlace a la licencia
+
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
 ---
 
 ## 📧 Contacto
 
-**Autor:** Mauro Quilodran  
+**Autor:** Mauricio Mercado  
 **GitHub:** [@Mauroquil-bit](https://github.com/Mauroquil-bit)  
 **Repositorio:** [curso_principiantes_python_2025](https://github.com/Mauroquil-bit/curso_principiantes_python_2025)
 
@@ -390,6 +290,19 @@ Si este curso te está siendo útil:
 
 ---
 
+## ☕ Donaciones
+
+¿Este curso te ayudó? Considera invitarme un café:
+
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤-red?style=for-the-badge&logo=github)](https://github.com/sponsors/Mauroquil-bit)
+
+Tu apoyo me motiva a:
+- ✨ Crear más contenido de calidad
+- 🔄 Mantener el curso actualizado
+- 📚 Desarrollar nuevos módulos gratuitos
+
+---
+
 ## 📈 Roadmap y Actualizaciones
 
 ### ✅ Completado (Noviembre 2025)
@@ -409,12 +322,6 @@ Si este curso te está siendo útil:
 ---
 
 ## 💭 Nota Personal
-
-Este curso nació de mi experiencia enseñando Python a decenas de estudiantes. Me di cuenta de que muchos recursos son:
-- Demasiado técnicos para principiantes
-- Desorganizados
-- En inglés
-- Caros
 
 Decidí crear algo **diferente**: un curso gratuito, en español, estructurado y práctico.
 
