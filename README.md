@@ -1,6 +1,6 @@
-# 🚀 Curso para Principiantes: Python + Git/GitHub + Postman
+# 🚀 Curso para Principiantes: Python Básico + Git/GitHub + Postman + Docker + N8N
 
-Curso práctico desde cero para aprender desarrollo de software moderno.
+Curso práctico desde cero.
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![Licencia](https://img.shields.io/badge/Licencia-MIT-green.svg)](LICENSE)
@@ -31,14 +31,17 @@ Este es un curso integral diseñado para personas que quieren **empezar en el de
 - **Python** → El lenguaje de programación
 - **Git/GitHub** → Control de versiones y colaboración
 - **Postman** → Testing de APIs
+- **Docker** → Contenerización de aplicaciones
+- **N8N** → Automatización de flujos de trabajo
 
 ### ¿Por qué este curso es diferente?
 
 ✅ **Práctico:** Aprende haciendo, con ejemplos reales  
 ✅ **Estructurado:** Progresión lógica desde cero  
-✅ **En Español:** Explicaciones claras sin tecnicismos innecesarios  
-✅ **Completo:** No solo código, también herramientas profesionales  
+✅ **En Español:** Explicaciones claras sin tecnicismos innecesarios   
 ✅ **Gratuito:** Material de código abierto para todos  
+✅ **Actualizado:** Contenido en constante evolución
+✅ **Comunidad en WhatsApp:** Conexión y soporte entre estudiantes
 
 ---
 
@@ -48,16 +51,15 @@ Este es un curso integral diseñado para personas que quieren **empezar en el de
 
 ### ✅ Contenido Disponible
 
-- [x] **Clase 1:** Fundamentos de Strings en Python
-- [x] **Clase 2:** Métodos de Strings y Diferencia con Funciones
+- [x] **Módulo 1** (Clases 1): Instalación Python, Variables, Tipos de Datos
+- [x] **Módulo 1** (Clases 2): Strings - Creación, Operaciones, Métodos, Indexación/Slicing, Formateo, Raw Strings
 
 ### 🔨 Próximamente
 
-- [ ] Clase 3: Variables y Tipos de Datos
-- [ ] Clase 4: Estructuras de Control (if, loops)
-- [ ] Clase 5-8: Funciones, Listas, Diccionarios, etc.
-- [ ] Módulo Git/GitHub
-- [ ] Módulo Postman
+- [ ] **Módulo 1** (Clases 3-8): Operadores, Condicionales, Bucles, Funciones, Excepciones, Módulos
+- [ ] **Módulo 2** (Clases 9-10): Git / GitHub
+- [ ] **Módulo 3** (Clases 11-12): Docker y Postman
+- [ ] **Módulo 4** (Clases 13-14): N8N y Automatización de Workflows
 
 **Última actualización:** Noviembre 2025
 
