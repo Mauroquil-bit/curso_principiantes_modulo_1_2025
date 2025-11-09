@@ -1,4 +1,4 @@
-# 🚀 Curso para Principiantes: Python Básico + Git/GitHub + Postman + Docker + N8N
+# 🚀 Curso para Principiantes: Python Básico + Git/GitHub + Docker + Postman + N8N
 
 Curso práctico desde cero.
 
