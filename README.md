@@ -19,6 +19,7 @@ Curso práctico desde cero.
 - [Contribuir](#-contribuir)
 - [Licencia](#-licencia)
 - [Contacto](#-contacto)
+- [Donaciones](#-donaciones)
 
 ---
 
